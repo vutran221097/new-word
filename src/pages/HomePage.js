@@ -58,14 +58,14 @@ const HomePage = () => {
             </button>
             <div className="new-word">
                 {!wordsAdded.length ? (<div></div>) : (<h3>{index}/{wordsAdded.length}</h3>)}
-                <h1>{word.word}</h1>
-                <h1 className={`meaning ${show}`} onClick={handdleShow}>{word.wordVN}</h1>
+                <h1>{word?.word}</h1>
+                <h1 className={`meaning ${show}`} onClick={handdleShow}>{word?.wordVN}</h1>
 
 
                 <div className="play-button" hidden={!wordsAdded.length}>
                     <SayButton
                         onClick={event => console.log(event)}
-                        speak={word.word}
+                        speak={word?.word}
 
                     >
                         <svg className="icon-play" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
