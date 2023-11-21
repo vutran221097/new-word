@@ -7,7 +7,8 @@ import './AddPage.css'
 
 const AddPage = () => {
     const inputReference = useRef(null);
-    const [wordsAdded, setWordsAdded] = useState(getFromStorage('words', []));
+    const initList = getFromStorage('words', []).sort((a, b) => a.word.localeCompare(b.word))
+    const [wordsAdded, setWordsAdded] = useState(initList);
     const [word, setWord] = useState("")
     const [wordVN, setWordVN] = useState("")
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const AddPage = () => {
 
     const onEnterInput = () => {
         if (!word || !wordVN) return;
-        const newWords = [{ word, wordVN }, ...wordsAdded]
+        const newWords = [{ word, wordVN }, ...wordsAdded].sort((a, b) => a.word.localeCompare(b.word))
         saveToStorage("words", newWords)
         setWordsAdded(newWords)
         setWord("")
