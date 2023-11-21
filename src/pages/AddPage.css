@@ -1,0 +1,52 @@
+.add-new-word {
+  width: 1200px !important;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6rem;
+}
+
+.word-input input {
+  width: 14.9rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.word-input {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.word-input .input {
+  display: flex;
+  flex-direction: column;
+}
+
+.word-input input:focus {
+  outline: none;
+}
+
+.word-input .action button {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.word-list {
+  background-color: white;
+  width: 24rem;
+  padding: 1rem 2rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-word {
+  cursor: pointer;
+}
