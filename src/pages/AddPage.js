@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getFromStorage, saveToStorage } from "../utils/utils";
@@ -6,8 +6,8 @@ import { getFromStorage, saveToStorage } from "../utils/utils";
 import './AddPage.css'
 
 const AddPage = () => {
+    const inputReference = useRef(null);
     const [wordsAdded, setWordsAdded] = useState(getFromStorage('words', []));
-
     const [word, setWord] = useState("")
     const [wordVN, setWordVN] = useState("")
     const navigate = useNavigate();
@@ -20,6 +20,7 @@ const AddPage = () => {
         setWordsAdded(newWords)
         setWord("")
         setWordVN("")
+        inputReference.current.focus();
     }
 
     const onDelete = (index) => {
@@ -43,13 +44,8 @@ const AddPage = () => {
             </button>
             <div className="add-new-word">
                 <div className="word-input">
-                    <div className="input">
-                        <input placeholder="Add New Word" value={word} onChange={(e) => setWord(e.target.value)} onKeyDown={onEnter} />
-                        <input placeholder="Nhập Tiếng Việt" value={wordVN} onChange={(e) => setWordVN(e.target.value)} onKeyDown={onEnter} />
-                    </div>
-                    <div className="action">
-                        <button onClick={onEnterInput}>Add</button>
-                    </div>
+                    <input ref={inputReference} placeholder="Add New Word" value={word} onChange={(e) => setWord(e.target.value)} onKeyDown={onEnter} />
+                    <input placeholder="Nhập Tiếng Việt" value={wordVN} onChange={(e) => setWordVN(e.target.value)} onKeyDown={onEnter} />
                 </div>
                 {wordsAdded.length ? (
                     <div className="word-list">

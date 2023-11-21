@@ -4,33 +4,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
 
 .word-input input {
-  width: 14.9rem;
+  width: 24rem;
   padding: 1rem 2rem;
   margin-bottom: 1rem;
 }
 
 .word-input {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.word-input .input {
-  display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .word-input input:focus {
   outline: none;
-}
-
-.word-input .action button {
-  padding: 1rem 2rem;
-  cursor: pointer;
 }
 
 .word-list {
